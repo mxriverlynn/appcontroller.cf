@@ -1,22 +1,28 @@
 using System.Windows.Forms;
-using StructureMap;
+using Ninject.Core;
+using SimpleOrgChart.App;
 
-namespace SimpleOrgChart
+namespace SimpleOrgChart.CF.UI
 {
 	public class BootStrapper
 	{
 
-		private IContainer Container { get; set; }
+		private IKernel Container { get; set; }
 
-		public BootStrapper(IContainer container)
+		public BootStrapper(IKernel container)
 		{
 			Container = container;
 		}
 
-		public ApplicationContext GetAppContext()
+		public Form GetMainForm()
 		{
-			Container.Configure(c => c.AddRegistry<DefaultRegistry>());
-			return Container.GetInstance<ApplicationContext>();
+			MainForm mainForm = new MainForm();
+			Container.Inject(mainForm);
+			
+			OrgChartPresenter presenter = Container.Get<OrgChartPresenter>();
+			presenter.Run();
+			
+			return mainForm;
 		}
 
 	}

@@ -1,9 +1,9 @@
 using EventAggregator.CF;
+using SimpleOrgChart.App;
 using SimpleOrgChart.Model;
 
-namespace SimpleOrgChart.App
+namespace SimpleOrgChart.CF.App
 {
-
 	public class EmployeeDetailPresenter: IEventHandler<EmployeeSelectedEvent>
 	{
 
@@ -22,5 +22,4 @@ namespace SimpleOrgChart.App
 		}
 
 	}
-
 }

@@ -1,26 +1,26 @@
-using EventAggregator;
 using EventAggregator.CF;
-using StructureMap;
+using Ninject.Core;
+using SimpleOrgChart.AppController;
 
-namespace SimpleOrgChart.AppController
+namespace SimpleOrgChart.CF.AppController
 {
 	public class ApplicationController : IApplicationController
 	{
 
-		private IContainer Container { get; set; }
+		private IKernel Container { get; set; }
 		private IEventPublisher EventPublisher { get; set; }
 
-		public ApplicationController(IContainer container, IEventPublisher eventPublisher)
+		public ApplicationController(IKernel container, IEventPublisher eventPublisher)
 		{
 			Container = container;
 			EventPublisher = eventPublisher;
 			
-			Container.Inject<IApplicationController>(this);
+			Container.Inject(this);
 		}
 
 		public void Execute<T>(T commandData)
 		{
-			ICommand<T> command = Container.TryGetInstance<ICommand<T>>();
+			ICommand<T> command = Container.Get<ICommand<T>>();
 			if (command != null)
 				command.Execute(commandData);
 		}

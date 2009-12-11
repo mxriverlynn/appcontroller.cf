@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using Rhino.Mocks;
 using SimpleOrgChart.App;
+using SimpleOrgChart.CF.App;
 using SimpleOrgChart.Model;
 using SpecUnit;
 

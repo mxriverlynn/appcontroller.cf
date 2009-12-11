@@ -1,23 +1,17 @@
-﻿using System;
-using System.Windows.Forms;
-using StructureMap;
+﻿using System.Windows.Forms;
+using Ninject.Core;
 
-namespace SimpleOrgChart
+namespace SimpleOrgChart.CF.UI
 {
 	static class Program
 	{
 
-		[STAThread]
 		static void Main()
 		{
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
+			IKernel kernel = new StandardKernel();
+			BootStrapper bootStrapper = new BootStrapper(kernel);
 
-			Container ioc = new Container();
-			BootStrapper bootStrapper = new BootStrapper(ioc);
-			ApplicationContext appcontext = bootStrapper.GetAppContext();
-
-			Application.Run(appcontext);
+			Application.Run(bootStrapper.GetMainForm());
 		}
 
 	}

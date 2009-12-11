@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleOrgChart", "SimpleOrgChart\SimpleOrgChart.csproj", "{CF9EACE8-A286-497B-83D9-A5F0441A989B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleOrgChart.UnitTests", "SimpleOrgChart.UnitTests\SimpleOrgChart.UnitTests.csproj", "{D9510FAB-D557-49BA-9EC2-493AF83420FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAggregator.CF", "EventAggregator.CF\EventAggregator.CF.csproj", "{60AE0791-C189-42AC-A8FC-53A57870755D}"
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CF9EACE8-A286-497B-83D9-A5F0441A989B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF9EACE8-A286-497B-83D9-A5F0441A989B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF9EACE8-A286-497B-83D9-A5F0441A989B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF9EACE8-A286-497B-83D9-A5F0441A989B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D9510FAB-D557-49BA-9EC2-493AF83420FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D9510FAB-D557-49BA-9EC2-493AF83420FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9510FAB-D557-49BA-9EC2-493AF83420FD}.Release|Any CPU.ActiveCfg = Release|Any CPU

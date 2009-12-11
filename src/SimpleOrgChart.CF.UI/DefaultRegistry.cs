@@ -1,62 +1,58 @@
+using System;
 using System.Windows.Forms;
-using EventAggregator;
 using EventAggregator.CF;
+using Microsoft.Win32;
+using Ninject.Core;
+using Ninject.Core.Behavior;
 using SimpleOrgChart.App;
 using SimpleOrgChart.App.NewEmployeeProcess;
 using SimpleOrgChart.App.NewEmployeeProcess.SelectEmployeeManager;
 using SimpleOrgChart.App.NewEmployeeProcess.SupplyEmployeeInfo;
 using SimpleOrgChart.AppController;
+using SimpleOrgChart.CF.AppController;
 using SimpleOrgChart.Model;
 using SimpleOrgChart.Repositories;
-using SimpleOrgChart.View;
-using StructureMap.Configuration.DSL;
 
-namespace SimpleOrgChart
+namespace SimpleOrgChart.CF.UI
 {
-
-	public class DefaultRegistry : Registry
+	public class DefaultRegistry : StandardModule
 	{
 
-		public DefaultRegistry()
+		public override void Load()
 		{
-			ForRequestedType<ApplicationContext>()
-				.TheDefault.Is.OfConcreteType<AppContext>();
+			Bind<IApplicationController>()
+				.To<ApplicationController>();
 
-			ForRequestedType<IApplicationController>()
-				.TheDefault.Is.OfConcreteType<ApplicationController>();
+			Bind<IEventPublisher>()
+				.To<EventPublisher>()
+				.Using<SingletonBehavior>();
 
-			ForRequestedType<IEventPublisher>()
-				.AsSingletons()
-				.TheDefault.Is.OfConcreteType<EventPublisher>();
+			Bind<IOrgChartView>()
+				.To<MainForm>();
 
-			ForRequestedType<IOrgChartView>()
-				.TheDefaultIsConcreteType<MainForm>()
-				.OnCreation((i,v) => i.GetInstance<EmployeeDetailPresenter>());
+			Bind<IEmployeeRepository>()
+				.To<InMemoryEmployeeRepository>();
 
-			ForRequestedType<IEmployeeRepository>()
-				.TheDefaultIsConcreteType<InMemoryEmployeeRepository>();
+			Bind<IEmployeeDetailView>()
+				.To<ViewEmployeeDetailControl>();
 
-			ForRequestedType<IEmployeeDetailView>()
-				.TheDefaultIsConcreteType<ViewEmployeeDetailControl>();
+			Bind<ICommand<AddNewEmployeeData>>()
+				.To<AddNewEmployeeService>();
 
-			ForRequestedType<ICommand<AddNewEmployeeData>>()
-				.TheDefaultIsConcreteType<AddNewEmployeeService>();
+			Bind<IGetNewEmployeeInfo>()
+				.To<NewEmployeeInfoPresenter>();
 
-			ForRequestedType<IGetNewEmployeeInfo>()
-				.TheDefaultIsConcreteType<NewEmployeeInfoPresenter>();
+			Bind<INewEmployeeInfoView>()
+				.To<NewEmployeeInfoForm>();
 
-			ForRequestedType<INewEmployeeInfoView>()
-				.TheDefaultIsConcreteType<NewEmployeeInfoForm>();
+			Bind<IGetEmployeeManager>()
+				.To<SelectEmployeeManagerPresenter>();
 
-			ForRequestedType<IGetEmployeeManager>()
-				.TheDefaultIsConcreteType<SelectEmployeeManagerPresenter>();
+			Bind<ISelectEmployeeManagerView>()
+				.To<SelectEmployeeManagerForm>();
 
-			ForRequestedType<ISelectEmployeeManagerView>()
-				.TheDefaultIsConcreteType<SelectEmployeeManagerForm>();
-
-			RegisterInterceptor(new EventAggregatorInterceptor());
+			//RegisterInterceptor(new EventAggregatorInterceptor());
 		}
 
 	}
-
 }
