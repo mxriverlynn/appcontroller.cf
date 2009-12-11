@@ -1,4 +1,3 @@
-using EventAggregator.CF;
 using NUnit.Framework;
 using SpecUnit;
 

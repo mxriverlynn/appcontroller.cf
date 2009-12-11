@@ -1,5 +1,4 @@
 using System;
-using EventAggregator.CF;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SpecUnit;

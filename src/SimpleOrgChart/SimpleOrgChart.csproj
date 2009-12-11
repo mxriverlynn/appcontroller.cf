@@ -138,9 +138,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EventAggregator\EventAggregator.csproj">
-      <Project>{E83117B4-DAA0-4079-9B68-126E93261FD6}</Project>
-      <Name>EventAggregator</Name>
+    <ProjectReference Include="..\EventAggregator.CF\EventAggregator.CF.csproj">
+      <Project>{60AE0791-C189-42AC-A8FC-53A57870755D}</Project>
+      <Name>EventAggregator.CF</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
