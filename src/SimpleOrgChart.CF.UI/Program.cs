@@ -8,9 +8,7 @@ namespace SimpleOrgChart.CF.UI
 
 		static void Main()
 		{
-			IKernel kernel = new StandardKernel();
-			BootStrapper bootStrapper = new BootStrapper(kernel);
-
+			BootStrapper bootStrapper = new BootStrapper(new StandardKernel());
 			Application.Run(bootStrapper.GetMainForm());
 		}
 

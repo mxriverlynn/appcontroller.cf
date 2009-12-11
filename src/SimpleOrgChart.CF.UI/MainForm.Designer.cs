@@ -30,24 +30,24 @@
 		private void InitializeComponent()
 		{
 			this.mainMenu1 = new System.Windows.Forms.MainMenu();
-			this.treeView1 = new System.Windows.Forms.TreeView();
-			this.viewEmployeeDetailControl1 = new SimpleOrgChart.CF.UI.ViewEmployeeDetailControl();
+			this.OrgChart = new System.Windows.Forms.TreeView();
+			this.ViewEmployeeDetail = new SimpleOrgChart.CF.UI.ViewEmployeeDetailControl();
 			this.AddNewEmployee = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// treeView1
+			// OrgChart
 			// 
-			this.treeView1.Location = new System.Drawing.Point(3, 4);
-			this.treeView1.Name = "treeView1";
-			this.treeView1.Size = new System.Drawing.Size(234, 131);
-			this.treeView1.TabIndex = 0;
+			this.OrgChart.Location = new System.Drawing.Point(3, 4);
+			this.OrgChart.Name = "OrgChart";
+			this.OrgChart.Size = new System.Drawing.Size(234, 131);
+			this.OrgChart.TabIndex = 0;
 			// 
-			// viewEmployeeDetailControl1
+			// ViewEmployeeDetail
 			// 
-			this.viewEmployeeDetailControl1.Location = new System.Drawing.Point(3, 141);
-			this.viewEmployeeDetailControl1.Name = "viewEmployeeDetailControl1";
-			this.viewEmployeeDetailControl1.Size = new System.Drawing.Size(234, 71);
-			this.viewEmployeeDetailControl1.TabIndex = 1;
+			this.ViewEmployeeDetail.Location = new System.Drawing.Point(3, 141);
+			this.ViewEmployeeDetail.Name = "ViewEmployeeDetail";
+			this.ViewEmployeeDetail.Size = new System.Drawing.Size(234, 71);
+			this.ViewEmployeeDetail.TabIndex = 1;
 			// 
 			// AddNewEmployee
 			// 
@@ -56,6 +56,7 @@
 			this.AddNewEmployee.Size = new System.Drawing.Size(234, 47);
 			this.AddNewEmployee.TabIndex = 2;
 			this.AddNewEmployee.Text = "Add New Employee";
+			this.AddNewEmployee.Click += new System.EventHandler(this.AddNewEmployee_Click);
 			// 
 			// MainForm
 			// 
@@ -64,8 +65,8 @@
 			this.AutoScroll = true;
 			this.ClientSize = new System.Drawing.Size(240, 268);
 			this.Controls.Add(this.AddNewEmployee);
-			this.Controls.Add(this.viewEmployeeDetailControl1);
-			this.Controls.Add(this.treeView1);
+			this.Controls.Add(this.ViewEmployeeDetail);
+			this.Controls.Add(this.OrgChart);
 			this.Menu = this.mainMenu1;
 			this.Name = "MainForm";
 			this.Text = "MainForm";
@@ -75,8 +76,8 @@
 
 		#endregion
 
-		private System.Windows.Forms.TreeView treeView1;
-		private ViewEmployeeDetailControl viewEmployeeDetailControl1;
+		private System.Windows.Forms.TreeView OrgChart;
+		private ViewEmployeeDetailControl ViewEmployeeDetail;
 		private System.Windows.Forms.Button AddNewEmployee;
 	}
 }

@@ -21,20 +21,15 @@ namespace SimpleOrgChart.CF.UI
 		public override void Load()
 		{
 			Bind<IApplicationController>()
-				.To<ApplicationController>();
+				.To<ApplicationController>()
+				.Using<SingletonBehavior>();
 
 			Bind<IEventPublisher>()
 				.To<EventPublisher>()
 				.Using<SingletonBehavior>();
 
-			Bind<IOrgChartView>()
-				.To<MainForm>();
-
 			Bind<IEmployeeRepository>()
 				.To<InMemoryEmployeeRepository>();
-
-			Bind<IEmployeeDetailView>()
-				.To<ViewEmployeeDetailControl>();
 
 			Bind<ICommand<AddNewEmployeeData>>()
 				.To<AddNewEmployeeService>();

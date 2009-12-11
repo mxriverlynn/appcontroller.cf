@@ -1,4 +1,4 @@
-namespace SimpleOrgChart.AppController
+namespace SimpleOrgChart.CF.AppController
 {
 	public interface IApplicationController
 	{

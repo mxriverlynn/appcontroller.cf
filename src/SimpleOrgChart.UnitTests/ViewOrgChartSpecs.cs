@@ -4,7 +4,8 @@ using Rhino.Mocks;
 using Rhino.Mocks.Constraints;
 using SimpleOrgChart.App;
 using SimpleOrgChart.App.NewEmployeeProcess;
-using SimpleOrgChart.AppController;
+using SimpleOrgChart.CF.App;
+using SimpleOrgChart.CF.AppController;
 using SimpleOrgChart.Model;
 using SpecUnit;
 

@@ -4,11 +4,12 @@ using Rhino.Mocks;
 using Rhino.Mocks.Constraints;
 using SimpleOrgChart.App;
 using SimpleOrgChart.App.NewEmployeeProcess;
-using SimpleOrgChart.AppController;
+using SimpleOrgChart.CF.App;
+using SimpleOrgChart.CF.AppController;
 using SimpleOrgChart.Model;
 using SpecUnit;
 
-namespace SimpleOrgChart.UnitTests
+namespace SimpleOrgChart___Final.UnitTests
 {
 	public class AddNewEmployeeSpecs
 	{
@@ -93,9 +94,9 @@ namespace SimpleOrgChart.UnitTests
 			public void Should_kick_off_the_add_new_employee_process()
 			{
 				appController.AssertWasCalled(c => c.Execute<AddNewEmployeeData>(null), mo => mo
-					.IgnoreArguments()
-					.Constraints(Is.TypeOf<AddNewEmployeeData>())
-				);
+				                                                                              	.IgnoreArguments()
+				                                                                              	.Constraints(Is.TypeOf<AddNewEmployeeData>())
+					);
 			}
 
 		}
@@ -140,9 +141,9 @@ namespace SimpleOrgChart.UnitTests
 			public void Should_notify_of_new_employee_added()
 			{
 				appController.AssertWasCalled(a => a.Raise<EmployeeAddedEvent>(null), mo => mo
-					.IgnoreArguments()
-					.Constraints(Is.TypeOf<EmployeeAddedEvent>())
-				);
+				                                                                            	.IgnoreArguments()
+				                                                                            	.Constraints(Is.TypeOf<EmployeeAddedEvent>())
+					);
 			}
 
 		}

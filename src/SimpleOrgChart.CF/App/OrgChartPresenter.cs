@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using EventAggregator;
 using EventAggregator.CF;
+using SimpleOrgChart.App;
 using SimpleOrgChart.App.NewEmployeeProcess;
-using SimpleOrgChart.AppController;
+using SimpleOrgChart.CF.AppController;
 using SimpleOrgChart.Model;
 
-namespace SimpleOrgChart.App
+namespace SimpleOrgChart.CF.App
 {
-
 	public class OrgChartPresenter: IEventHandler<EmployeeAddedEvent>
 	{
 
@@ -50,5 +50,4 @@ namespace SimpleOrgChart.App
 		}
 
 	}
-
 }

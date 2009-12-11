@@ -7,20 +7,18 @@ namespace SimpleOrgChart.CF.AppController
 	public class ApplicationController : IApplicationController
 	{
 
-		private IKernel Container { get; set; }
+		private IKernel Kernel { get; set; }
 		private IEventPublisher EventPublisher { get; set; }
 
-		public ApplicationController(IKernel container, IEventPublisher eventPublisher)
+		public ApplicationController(IKernel kernel, IEventPublisher eventPublisher)
 		{
-			Container = container;
+			Kernel = kernel;
 			EventPublisher = eventPublisher;
-			
-			Container.Inject(this);
 		}
 
 		public void Execute<T>(T commandData)
 		{
-			ICommand<T> command = Container.Get<ICommand<T>>();
+			ICommand<T> command = Kernel.Get<ICommand<T>>();
 			if (command != null)
 				command.Execute(commandData);
 		}

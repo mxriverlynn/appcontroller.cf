@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using SimpleOrgChart.Model;
 
-namespace SimpleOrgChart.App
+namespace SimpleOrgChart.CF.App
 {
 	public interface IOrgChartView
 	{
