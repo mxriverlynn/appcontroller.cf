@@ -1,6 +1,8 @@
-namespace SimpleOrgChart.App.NewEmployeeProcess.SupplyEmployeeInfo
+using SimpleOrgChart.App;
+using SimpleOrgChart.App.NewEmployeeProcess;
+
+namespace SimpleOrgChart.CF.App.NewEmployeeProcess.SupplyEmployeeInfo
 {
-	
 	public class NewEmployeeInfoPresenter: IGetNewEmployeeInfo
 	{
 		private INewEmployeeInfoView View { get; set; }
@@ -37,11 +39,11 @@ namespace SimpleOrgChart.App.NewEmployeeProcess.SupplyEmployeeInfo
 			if (ServiceResult == ServiceResult.Ok)
 			{
 				info = new EmployeeInfo
-					{
-						FirstName = FirstName,
-						LastName = LastName,
-						Email = Email
-					};
+				       	{
+				       		FirstName = FirstName,
+				       		LastName = LastName,
+				       		Email = Email
+				       	};
 			}
 			Result<EmployeeInfo> result = new Result<EmployeeInfo>(ServiceResult, info);
 			return result;
@@ -58,5 +60,4 @@ namespace SimpleOrgChart.App.NewEmployeeProcess.SupplyEmployeeInfo
 		}
 
 	}
-
 }

@@ -1,8 +1,10 @@
+using SimpleOrgChart.App;
+using SimpleOrgChart.App.NewEmployeeProcess;
 using SimpleOrgChart.AppController;
 using SimpleOrgChart.CF.AppController;
 using SimpleOrgChart.Model;
 
-namespace SimpleOrgChart.App.NewEmployeeProcess
+namespace SimpleOrgChart.CF.App.NewEmployeeProcess
 {
 	public class AddNewEmployeeService : ICommand<AddNewEmployeeData>
 	{
@@ -34,5 +36,4 @@ namespace SimpleOrgChart.App.NewEmployeeProcess
 		}
 
 	}
-
 }

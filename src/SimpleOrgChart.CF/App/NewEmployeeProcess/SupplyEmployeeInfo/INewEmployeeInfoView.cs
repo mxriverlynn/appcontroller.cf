@@ -1,4 +1,4 @@
-namespace SimpleOrgChart.App.NewEmployeeProcess.SupplyEmployeeInfo
+namespace SimpleOrgChart.CF.App.NewEmployeeProcess.SupplyEmployeeInfo
 {
 	public interface INewEmployeeInfoView
 	{

@@ -2,7 +2,7 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using SimpleOrgChart.App;
 using SimpleOrgChart.App.NewEmployeeProcess;
-using SimpleOrgChart.App.NewEmployeeProcess.SupplyEmployeeInfo;
+using SimpleOrgChart.CF.App.NewEmployeeProcess.SupplyEmployeeInfo;
 using SpecUnit;
 
 namespace SimpleOrgChart.UnitTests
