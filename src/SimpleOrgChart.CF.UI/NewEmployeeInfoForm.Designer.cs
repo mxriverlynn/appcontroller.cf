@@ -93,7 +93,7 @@
 			this.Next.Size = new System.Drawing.Size(110, 40);
 			this.Next.TabIndex = 8;
 			this.Next.Text = "Next";
-			this.Next.TextChanged += new System.EventHandler(this.Next_Click);
+			this.Next.Click += new System.EventHandler(this.Next_Click);
 			// 
 			// Cancel
 			// 
@@ -102,7 +102,7 @@
 			this.Cancel.Size = new System.Drawing.Size(110, 40);
 			this.Cancel.TabIndex = 9;
 			this.Cancel.Text = "Cancel";
-			this.Cancel.TextChanged += new System.EventHandler(this.Cancel_Click);
+			this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
 			// 
 			// NewEmployeeInfoForm
 			// 

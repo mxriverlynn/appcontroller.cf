@@ -88,6 +88,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="SelectEmployeeManagerForm.resx">
+      <DependentUpon>SelectEmployeeManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewEmployeeDetailControl.resx">
       <DependentUpon>ViewEmployeeDetailControl.cs</DependentUpon>
     </EmbeddedResource>

@@ -31,8 +31,8 @@
 		{
 			this.mainMenu1 = new System.Windows.Forms.MainMenu();
 			this.OrgChart = new System.Windows.Forms.TreeView();
-			this.ViewEmployeeDetail = new SimpleOrgChart.CF.UI.ViewEmployeeDetailControl();
 			this.AddNewEmployee = new System.Windows.Forms.Button();
+			this.ViewEmployeeDetail = new SimpleOrgChart.CF.UI.ViewEmployeeDetailControl();
 			this.SuspendLayout();
 			// 
 			// OrgChart
@@ -41,13 +41,7 @@
 			this.OrgChart.Name = "OrgChart";
 			this.OrgChart.Size = new System.Drawing.Size(234, 131);
 			this.OrgChart.TabIndex = 0;
-			// 
-			// ViewEmployeeDetail
-			// 
-			this.ViewEmployeeDetail.Location = new System.Drawing.Point(3, 141);
-			this.ViewEmployeeDetail.Name = "ViewEmployeeDetail";
-			this.ViewEmployeeDetail.Size = new System.Drawing.Size(234, 71);
-			this.ViewEmployeeDetail.TabIndex = 1;
+			this.OrgChart.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.OrgChart_AfterSelect);
 			// 
 			// AddNewEmployee
 			// 
@@ -57,6 +51,13 @@
 			this.AddNewEmployee.TabIndex = 2;
 			this.AddNewEmployee.Text = "Add New Employee";
 			this.AddNewEmployee.Click += new System.EventHandler(this.AddNewEmployee_Click);
+			// 
+			// ViewEmployeeDetail
+			// 
+			this.ViewEmployeeDetail.Location = new System.Drawing.Point(3, 141);
+			this.ViewEmployeeDetail.Name = "ViewEmployeeDetail";
+			this.ViewEmployeeDetail.Size = new System.Drawing.Size(234, 71);
+			this.ViewEmployeeDetail.TabIndex = 1;
 			// 
 			// MainForm
 			// 
@@ -68,8 +69,11 @@
 			this.Controls.Add(this.ViewEmployeeDetail);
 			this.Controls.Add(this.OrgChart);
 			this.Menu = this.mainMenu1;
+			this.MinimizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "MainForm";
+			this.Closed += new System.EventHandler(this.MainForm_Closed);
+			this.Closing += new System.ComponentModel.CancelEventHandler(this.MainForm_Closing);
 			this.ResumeLayout(false);
 
 		}

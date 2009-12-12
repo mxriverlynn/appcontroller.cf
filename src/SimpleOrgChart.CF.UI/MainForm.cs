@@ -71,5 +71,10 @@ namespace SimpleOrgChart.CF.UI
 			Presenter.AddNewEmployeeRequested();
 		}
 
+		private void MainForm_Closed(object sender, System.EventArgs e)
+		{
+			Application.Exit();
+		}
+
 	}
 }
