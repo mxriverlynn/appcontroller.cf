@@ -1,5 +1,8 @@
+using System;
 using System.Windows.Forms;
 using Ninject.Core;
+using Ninject.Core.Activation;
+using Ninject.Core.Interception;
 using SimpleOrgChart.CF.App;
 
 namespace SimpleOrgChart.CF.UI
@@ -25,4 +28,5 @@ namespace SimpleOrgChart.CF.UI
 		}
 
 	}
+
 }

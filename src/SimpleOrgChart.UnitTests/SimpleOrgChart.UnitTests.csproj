@@ -8,8 +8,8 @@
     <ProjectGuid>{D9510FAB-D557-49BA-9EC2-493AF83420FD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimpleOrgChart___Final.UnitTests</RootNamespace>
-    <AssemblyName>SimpleOrgChart - Final.UnitTests</AssemblyName>
+    <RootNamespace>SimpleOrgChart.UnitTests</RootNamespace>
+    <AssemblyName>SimpleOrgChart.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -38,6 +38,10 @@
     <Reference Include="Castle.DynamicProxy2, Version=2.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\bdd\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Core, Version=1.1.3516.28916, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Ninject.Core.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=2.4.6.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

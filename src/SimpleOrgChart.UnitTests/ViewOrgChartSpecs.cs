@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Ninject.Core;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Rhino.Mocks.Constraints;
@@ -11,7 +12,6 @@ using SpecUnit;
 
 namespace SimpleOrgChart.UnitTests
 {
-
 	public class ViewOrgChartSpecs
 	{
 
@@ -22,6 +22,7 @@ namespace SimpleOrgChart.UnitTests
 			protected IList<Employee> employeeList;
 			protected Employee bob;
 			protected IApplicationController appController;
+			protected IKernel kernel;
 
 			protected override void SharedContext()
 			{
@@ -34,11 +35,12 @@ namespace SimpleOrgChart.UnitTests
 				employeeRepo = MockRepository.GenerateMock<IEmployeeRepository>();
 				employeeRepo.Stub(r => r.GetEmployeeOrgChart()).Return(employeeList);
 
+				kernel = MockRepository.GenerateMock<IKernel>();
 			}
 
 			protected OrgChartPresenter GetPresenter()
 			{
-				OrgChartPresenter presenter = new OrgChartPresenter(view, appController, employeeRepo);
+				OrgChartPresenter presenter = new OrgChartPresenter(view, appController, employeeRepo, kernel);
 				return presenter;
 			}
 
@@ -82,9 +84,9 @@ namespace SimpleOrgChart.UnitTests
 			public void Should_send_notification_of_the_selected_employee()
 			{
 				appController.AssertWasCalled(c => c.Raise<EmployeeSelectedEvent>(null), mo => mo
-					.IgnoreArguments()
-					.Constraints(Is.TypeOf<EmployeeSelectedEvent>())
-				);
+				                                                                               	.IgnoreArguments()
+				                                                                               	.Constraints(Is.TypeOf<EmployeeSelectedEvent>())
+					);
 			}
 
 		}
@@ -111,5 +113,4 @@ namespace SimpleOrgChart.UnitTests
 
 
 	}
-
 }

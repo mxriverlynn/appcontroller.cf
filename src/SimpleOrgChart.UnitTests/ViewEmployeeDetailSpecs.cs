@@ -1,3 +1,4 @@
+using Ninject.Core;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SimpleOrgChart.App;
@@ -15,16 +16,18 @@ namespace SimpleOrgChart.UnitTests
 
 			protected Employee bob;
 			protected IEmployeeDetailView view;
+			protected IKernel kernel;
 
 			protected override void SharedContext()
 			{
 				bob = new Employee("Bob", "Jones", "bob.jones@example.com");
 				view = MockRepository.GenerateMock<IEmployeeDetailView>();
+				kernel = MockRepository.GenerateMock<IKernel>();
 			}
 
 			protected EmployeeDetailPresenter GetPresenter()
 			{
-				EmployeeDetailPresenter presenter = new EmployeeDetailPresenter(view);
+				EmployeeDetailPresenter presenter = new EmployeeDetailPresenter(view, kernel);
 				return presenter;
 			}
 		}

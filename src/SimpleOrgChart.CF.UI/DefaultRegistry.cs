@@ -3,11 +3,14 @@ using System.Windows.Forms;
 using EventAggregator.CF;
 using Microsoft.Win32;
 using Ninject.Core;
+using Ninject.Core.Activation;
 using Ninject.Core.Behavior;
+using Ninject.Core.Interception;
 using SimpleOrgChart.App;
 using SimpleOrgChart.App.NewEmployeeProcess;
 using SimpleOrgChart.App.NewEmployeeProcess.SelectEmployeeManager;
 using SimpleOrgChart.AppController;
+using SimpleOrgChart.CF.App;
 using SimpleOrgChart.CF.App.NewEmployeeProcess;
 using SimpleOrgChart.CF.App.NewEmployeeProcess.SupplyEmployeeInfo;
 using SimpleOrgChart.CF.AppController;
@@ -47,7 +50,8 @@ namespace SimpleOrgChart.CF.UI
 			Bind<ISelectEmployeeManagerView>()
 				.To<SelectEmployeeManagerForm>();
 
-			//RegisterInterceptor(new EventAggregatorInterceptor());
+			Bind<EmployeeDetailPresenter>()
+				.To<EmployeeDetailPresenter>();
 		}
 
 	}

@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using EventAggregator.CF;
 using Ninject.Core;
 using Ninject.Core.Behavior;
+using Ninject.Core.Infrastructure;
 using SimpleOrgChart.App;
 using SimpleOrgChart.CF.App;
 using SimpleOrgChart.Model;
@@ -21,6 +24,7 @@ namespace SimpleOrgChart.CF.UI
      			f.Bind<IOrgChartView>().ToConstant(this);
      			f.Bind<IEmployeeDetailView>().ToConstant(ViewEmployeeDetail);
      		}));
+			kernel.Get<EmployeeDetailPresenter>();
 		}
 
 		public void DisplayEmployeeHierarchy(IList<Employee> employees)

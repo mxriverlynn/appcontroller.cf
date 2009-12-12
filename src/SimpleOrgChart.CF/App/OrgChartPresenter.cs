@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using EventAggregator;
 using EventAggregator.CF;
+using Ninject.Core;
+using Ninject.Core.Infrastructure;
 using SimpleOrgChart.App;
 using SimpleOrgChart.App.NewEmployeeProcess;
 using SimpleOrgChart.CF.AppController;
@@ -15,12 +17,19 @@ namespace SimpleOrgChart.CF.App
 		private IApplicationController AppController { get; set; }
 		private IEmployeeRepository Repository { get; set; }
 
-		public OrgChartPresenter(IOrgChartView view, IApplicationController appController, IEmployeeRepository repository)
+		public OrgChartPresenter(IOrgChartView view, IApplicationController appController, IEmployeeRepository repository, IKernel kernel)
 		{
 			View = view;
 			AppController = appController;
 			View.Presenter = this;
 			Repository = repository;
+			SetupEventHandler(kernel);
+		}
+
+		private void SetupEventHandler(ILocator kernel)
+		{
+			IEventPublisher eventPublisher = kernel.Get<IEventPublisher>();
+			eventPublisher.RegisterHandlers(this);
 		}
 
 		public void Run()

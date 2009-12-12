@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Ninject.Core;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Rhino.Mocks.Constraints;
@@ -21,6 +22,7 @@ namespace SimpleOrgChart___Final.UnitTests
 			private IEmployeeRepository employeeRepo;
 			private IOrgChartView view;
 			private IList<Employee> employeeList;
+			private IKernel kernel;
 			private Employee bob;
 			protected IApplicationController appController;
 
@@ -35,11 +37,12 @@ namespace SimpleOrgChart___Final.UnitTests
 				employeeRepo = MockRepository.GenerateMock<IEmployeeRepository>();
 				employeeRepo.Stub(r => r.GetEmployeeOrgChart()).Return(employeeList);
 
+				kernel = MockRepository.GenerateMock<IKernel>();
 			}
 
 			protected OrgChartPresenter GetPresenter()
 			{
-				OrgChartPresenter presenter = new OrgChartPresenter(view, appController, employeeRepo);
+				OrgChartPresenter presenter = new OrgChartPresenter(view, appController, employeeRepo, kernel);
 				return presenter;
 			}
 

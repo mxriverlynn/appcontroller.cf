@@ -73,7 +73,6 @@
 			this.Name = "MainForm";
 			this.Text = "MainForm";
 			this.Closed += new System.EventHandler(this.MainForm_Closed);
-			this.Closing += new System.ComponentModel.CancelEventHandler(this.MainForm_Closing);
 			this.ResumeLayout(false);
 
 		}
