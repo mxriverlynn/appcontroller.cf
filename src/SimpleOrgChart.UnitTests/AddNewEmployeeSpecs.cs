@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using EventAggregator.CF;
 using Ninject.Core;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -11,7 +12,7 @@ using SimpleOrgChart.CF.AppController;
 using SimpleOrgChart.Model;
 using SpecUnit;
 
-namespace SimpleOrgChart___Final.UnitTests
+namespace SimpleOrgChart.UnitTests
 {
 	public class AddNewEmployeeSpecs
 	{
@@ -38,6 +39,8 @@ namespace SimpleOrgChart___Final.UnitTests
 				employeeRepo.Stub(r => r.GetEmployeeOrgChart()).Return(employeeList);
 
 				kernel = MockRepository.GenerateMock<IKernel>();
+				IEventPublisher pub = MockRepository.GenerateMock<IEventPublisher>();
+				kernel.Stub(k => k.Get<IEventPublisher>()).Return(pub);
 			}
 
 			protected OrgChartPresenter GetPresenter()

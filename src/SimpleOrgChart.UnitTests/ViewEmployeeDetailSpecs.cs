@@ -1,3 +1,4 @@
+using EventAggregator.CF;
 using Ninject.Core;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -23,6 +24,8 @@ namespace SimpleOrgChart.UnitTests
 				bob = new Employee("Bob", "Jones", "bob.jones@example.com");
 				view = MockRepository.GenerateMock<IEmployeeDetailView>();
 				kernel = MockRepository.GenerateMock<IKernel>();
+				IEventPublisher pub = MockRepository.GenerateMock<IEventPublisher>();
+				kernel.Stub(k => k.Get<IEventPublisher>()).Return(pub);
 			}
 
 			protected EmployeeDetailPresenter GetPresenter()
