@@ -23,7 +23,6 @@ namespace SimpleOrgChart.UnitTests
 			protected IList<Employee> employeeList;
 			protected Employee bob;
 			protected IApplicationController appController;
-			protected IKernel kernel;
 
 			protected override void SharedContext()
 			{
@@ -35,15 +34,11 @@ namespace SimpleOrgChart.UnitTests
 				
 				employeeRepo = MockRepository.GenerateMock<IEmployeeRepository>();
 				employeeRepo.Stub(r => r.GetEmployeeOrgChart()).Return(employeeList);
-
-				kernel = MockRepository.GenerateMock<IKernel>();
-				IEventPublisher pub = MockRepository.GenerateMock<IEventPublisher>();
-				kernel.Stub(k => k.Get<IEventPublisher>()).Return(pub);
 			}
 
 			protected OrgChartPresenter GetPresenter()
 			{
-				OrgChartPresenter presenter = new OrgChartPresenter(view, appController, employeeRepo, kernel);
+				OrgChartPresenter presenter = new OrgChartPresenter(view, appController, employeeRepo);
 				return presenter;
 			}
 

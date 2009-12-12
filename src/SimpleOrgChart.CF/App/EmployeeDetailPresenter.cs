@@ -2,6 +2,7 @@ using EventAggregator.CF;
 using Ninject.Core;
 using Ninject.Core.Infrastructure;
 using SimpleOrgChart.App;
+using SimpleOrgChart.CF.AppController;
 using SimpleOrgChart.Model;
 
 namespace SimpleOrgChart.CF.App
@@ -11,16 +12,10 @@ namespace SimpleOrgChart.CF.App
 
 		private IEmployeeDetailView View { get; set; }
 
-		public EmployeeDetailPresenter(IEmployeeDetailView view, IKernel kernel)
+		public EmployeeDetailPresenter(IEmployeeDetailView view, IApplicationController appController)
 		{
 			View = view;
-			SetupEventHandler(kernel);
-		}
-
-		private void SetupEventHandler(ILocator kernel)
-		{
-			IEventPublisher eventPublisher = kernel.Get<IEventPublisher>();
-			eventPublisher.RegisterHandlers(this);
+			appController.RegisterHandlers(this);
 		}
 
 		public void Handle(EmployeeSelectedEvent employeeSelectedEvent)

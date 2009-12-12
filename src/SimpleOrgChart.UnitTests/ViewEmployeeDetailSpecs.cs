@@ -4,6 +4,7 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using SimpleOrgChart.App;
 using SimpleOrgChart.CF.App;
+using SimpleOrgChart.CF.AppController;
 using SimpleOrgChart.Model;
 using SpecUnit;
 
@@ -17,20 +18,18 @@ namespace SimpleOrgChart.UnitTests
 
 			protected Employee bob;
 			protected IEmployeeDetailView view;
-			protected IKernel kernel;
+			protected IApplicationController appController;
 
 			protected override void SharedContext()
 			{
 				bob = new Employee("Bob", "Jones", "bob.jones@example.com");
 				view = MockRepository.GenerateMock<IEmployeeDetailView>();
-				kernel = MockRepository.GenerateMock<IKernel>();
-				IEventPublisher pub = MockRepository.GenerateMock<IEventPublisher>();
-				kernel.Stub(k => k.Get<IEventPublisher>()).Return(pub);
+				appController = MockRepository.GenerateMock<IApplicationController>();
 			}
 
 			protected EmployeeDetailPresenter GetPresenter()
 			{
-				EmployeeDetailPresenter presenter = new EmployeeDetailPresenter(view, kernel);
+				EmployeeDetailPresenter presenter = new EmployeeDetailPresenter(view, appController);
 				return presenter;
 			}
 		}

@@ -1,3 +1,4 @@
+using System;
 using EventAggregator.CF;
 using Ninject.Core;
 using SimpleOrgChart.AppController;
@@ -28,5 +29,9 @@ namespace SimpleOrgChart.CF.AppController
 			EventPublisher.Publish(eventData);
 		}
 
+		public void RegisterHandlers(object eventHandlerObject)
+		{
+			EventPublisher.RegisterHandlers(eventHandlerObject);
+		}
 	}
 }

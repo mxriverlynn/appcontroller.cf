@@ -17,19 +17,13 @@ namespace SimpleOrgChart.CF.App
 		private IApplicationController AppController { get; set; }
 		private IEmployeeRepository Repository { get; set; }
 
-		public OrgChartPresenter(IOrgChartView view, IApplicationController appController, IEmployeeRepository repository, IKernel kernel)
+		public OrgChartPresenter(IOrgChartView view, IApplicationController appController, IEmployeeRepository repository)
 		{
 			View = view;
 			AppController = appController;
 			View.Presenter = this;
 			Repository = repository;
-			SetupEventHandler(kernel);
-		}
-
-		private void SetupEventHandler(ILocator kernel)
-		{
-			IEventPublisher eventPublisher = kernel.Get<IEventPublisher>();
-			eventPublisher.RegisterHandlers(this);
+			appController.RegisterHandlers(this);
 		}
 
 		public void Run()

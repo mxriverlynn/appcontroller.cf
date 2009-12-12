@@ -4,5 +4,6 @@ namespace SimpleOrgChart.CF.AppController
 	{
 		void Execute<T>(T commandData);
 		void Raise<T>(T eventData);
+		void RegisterHandlers(object eventHandlerObject);
 	}
 }
