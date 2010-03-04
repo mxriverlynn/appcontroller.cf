@@ -69,10 +69,10 @@ namespace EventAggregator.CF
 		{
 			Type handleType = typeof(T);
 			Latches.RunWithLock(handleType, delegate
-			                                	{
-			                                		SetPublication(eventData);
-			                                		EventHandlers.Handle(eventData);
-			                                	});
+				{
+					SetPublication(eventData);
+					EventHandlers.Handle(eventData);
+				});
 		}
 
 		public T GetMostRecentPublication<T>()
@@ -101,3 +101,5 @@ namespace EventAggregator.CF
 		}
 	}
 }
+
+

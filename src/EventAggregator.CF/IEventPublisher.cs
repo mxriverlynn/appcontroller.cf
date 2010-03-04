@@ -17,3 +17,5 @@ namespace EventAggregator.CF
 		void OnHandlerError(Action<Exception> errorHandler);
 	}
 }
+
+
